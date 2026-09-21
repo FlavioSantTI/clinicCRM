@@ -151,6 +151,14 @@ const schema = z.object({
   // assine — aí a verificação passa a ser obrigatória.
   WAHA_WEBHOOK_REQUIRE_SIGNATURE: z.string().optional().default("false"),
 
+  // waconector — adapter multi-provider de APIs não-oficiais (EvoAPI, Z-API,
+  // Whapi, ...). Opcional: sem as vars, o adapter devolve isConfigured()=false e
+  // o canal nunca é selecionado. O backend (evolution/zapi/whapi/waha/...) decide
+  // qual adapter do waconector instanciar; default evolution (EvoAPI).
+  WACONECTOR_BASE_URL: z.string().optional().default(""),
+  WACONECTOR_API_KEY: z.string().optional().default(""),
+  WACONECTOR_BACKEND: z.string().optional().default("evolution"),
+
   // Upstash Redis
   UPSTASH_REDIS_REST_URL: required("UPSTASH_REDIS_REST_URL"),
   UPSTASH_REDIS_REST_TOKEN: required("UPSTASH_REDIS_REST_TOKEN"),

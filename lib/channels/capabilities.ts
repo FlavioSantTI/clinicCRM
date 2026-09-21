@@ -69,6 +69,20 @@ export const CHANNEL_CAPABILITIES: Record<ChannelProvider, ChannelCapabilities> 
     groups: "limited",
     costPerMessage: true,
   },
+  // Multi-provider não-oficial via biblioteca waconector (EvoAPI, Z-API, Whapi, ...).
+  // Mesmas capabilities do `waha`: sem WABA, sem janela de 24h, sem template, com
+  // risco de banimento. O backend específico (evolution/zapi/whapi) é config via
+  // env var, não um provider distinto — todos compartilham este perfil.
+  waconector: {
+    freeformOutsideWindow: true,
+    requiresTemplates: false,
+    canManageTemplates: false,
+    banRisk: true,
+    minIntervalMs: null,
+    voiceNote: "server-convert",
+    groups: "full",
+    costPerMessage: false,
+  },
 };
 
 /**
@@ -90,6 +104,7 @@ export const DEFAULT_CHANNEL_PROVIDER: ChannelProvider = "waha";
 export const CHANNEL_PROVIDER_WAHA: ChannelProvider = "waha";
 export const CHANNEL_PROVIDER_META: ChannelProvider = "meta_cloud";
 export const CHANNEL_PROVIDER_ZERNIO: ChannelProvider = "zernio";
+export const CHANNEL_PROVIDER_WACONECTOR: ChannelProvider = "waconector";
 
 export function capabilitiesOf(provider: ChannelProvider): ChannelCapabilities {
   const caps = CHANNEL_CAPABILITIES[provider];

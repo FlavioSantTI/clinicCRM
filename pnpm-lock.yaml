@@ -178,6 +178,9 @@ importers:
       tailwind-merge:
         specifier: ^3.6.0
         version: 3.6.0
+      waconector:
+        specifier: file:../waconector
+        version: file:../waconector
       web-push:
         specifier: ^3.6.7
         version: 3.6.7
@@ -5422,6 +5425,11 @@ packages:
   w3c-xmlserializer@5.0.0:
     resolution: {integrity: sha512-o8qghlI8NZHU1lLPrpi2+Uq7abh4GGPpYANlalzWxyWteJOCsr/P+oPBA49TOLu5FTZO4d3F9MnWJfiMo4BkmA==}
     engines: {node: '>=18'}
+
+  waconector@file:../waconector:
+    resolution: {directory: ../waconector, type: directory}
+    engines: {node: '>=20'}
+    hasBin: true
 
   watchpack@2.5.2:
     resolution: {integrity: sha512-6i/00NBjP4yGPs+caKSyRfpTF/8Torsu0MOW3mMzIbhgISFder8i7xbqgHlLMwJrdiN8ndBV3UA1/AfzPSr+jg==}
@@ -10730,6 +10738,8 @@ snapshots:
   w3c-xmlserializer@5.0.0:
     dependencies:
       xml-name-validator: 5.0.0
+
+  waconector@file:../waconector: {}
 
   watchpack@2.5.2:
     dependencies:
